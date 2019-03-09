@@ -1,25 +1,41 @@
 import React, { Component } from "react";
-const words = [
-  {
-    id: 1,
-    name: "Test",
-    name2: "try",
-    imageURL: "https://i.imgur.com/SRtYTwd.jpg"
-  },
-  {
-    id: 2,
-    name: "Test2",
-    name2: "try2",
-    imageURL: "https://i.imgur.com/x85xzZR.gif"
-  }
-];
+import axios from "axios";
+// const words = [
+//   {
+//     id: 1,
+//     name: "Test",
+//     name2: "try",
+//     imageURL: "https://i.imgur.com/SRtYTwd.jpg"
+//   },
+//   {
+//     id: 2,
+//     name: "Test2",
+//     name2: "try2",
+//     imageURL: "https://i.imgur.com/x85xzZR.gif"
+//   }
+// ];
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wordList: words
+      activeItem: {
+        name: "",
+        name2: "",
+        imageURL:""
+      },
+      wordList: []
     };
   }
+      componentDidMount() {
+        this.refreshList();
+      }
+      refreshList = () => {
+        axios
+          .get("http://localhost:8000/api/words/")
+          .then(res => this.setState({ wordList: res.data }))
+          .catch(err => console.log(err));
+      };
+
 
   renderItems = () => {
     const newItems = this.state.wordList
