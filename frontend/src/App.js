@@ -1,19 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// const words = [
-//   {
-//     id: 1,
-//     name: "Test",
-//     name2: "try",
-//     imageURL: "https://i.imgur.com/SRtYTwd.jpg"
-//   },
-//   {
-//     id: 2,
-//     name: "Test2",
-//     name2: "try2",
-//     imageURL: "https://i.imgur.com/x85xzZR.gif"
-//   }
-// ];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -57,6 +44,26 @@ class App extends Component {
   render() {
     return (
       <main className="content">
+      <div>
+        <nav className="navbar navbar-expand-sm navbar-dark mb-3 py-0"
+      style={{backgroundColor:'tomato'}}>
+        <div className="container">
+          <a href="/" className="navbar-brand">
+            ASL
+          </a>
+          <div>
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <a href="/" className="nav-link">
+                  Home
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
         <h1 className="text-white text-uppercase text-center my-4">All words</h1>
         <div className="row ">
           <div className="col-md-6 col-sm-10 mx-auto p-0">
