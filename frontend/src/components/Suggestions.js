@@ -1,5 +1,5 @@
 import React from 'react'
-
+//send to search(?)
 const Suggestions = (props) => {
   const options = props.results.map(r => (
     <li key={r.id}>
