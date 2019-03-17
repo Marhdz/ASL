@@ -6,13 +6,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // activeItem: {
-      //   name: "",
-      //   name2: "",
-      //   imageURL:""
-      // },
+      activeItem: {
+        name: "",
+        name2: "",
+        imageURL:""
+      },
       wordList: [],
+  };
   }
+  componentDidMount() {
+    this.refreshList();
   }
   refreshList = () => {
     axios
@@ -32,7 +35,7 @@ class App extends Component {
           title={item.name2}
         >
           {item.name}
-          <img src={item.imageURL} className="rounded float-right img-thumbnail" alt={item.name}/>
+          <img src={item.imageURL} className="rounded float-right img-thumbnail"  alt={item.name}/>
         </span>
       </li>
     ));
@@ -42,14 +45,12 @@ class App extends Component {
       <main className="content">
       <Header branding="ASL" />
         <h1 className="text-white text-uppercase text-center my-4">All words</h1>
-
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
+        <div className="col-md-6 col-sm-10 mx-auto p-0">
             <div className="card p-3">
               <ul className="list-group list-group-flush">
                 {this.renderItems()}
               </ul>
             </div>
-          
         </div>
       </main>
     );
