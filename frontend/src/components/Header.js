@@ -11,6 +11,10 @@ class Header extends React.Component {
       branding:''
     };
   }
+  handleChange(e){
+   this.setState({[e.target.name]: e.target.value})
+   console.log(e.target.value);
+}
   render () {
     return(
         <nav className="navbar navbar-expand-sm navbar-dark mb-3 py-0"
@@ -20,7 +24,7 @@ class Header extends React.Component {
             ASL
           </a>
           <div>
-            <Search placeh={"Search"} onChange={()=>console.log('s')}/>
+            <Search placeh={"Search"} onChange={(e) => this.handleChange(e)}/>
           </div>
         </div>
       </nav>
